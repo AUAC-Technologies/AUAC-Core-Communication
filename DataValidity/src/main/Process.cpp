@@ -52,5 +52,5 @@ char P_MAIN::get(char (*func)()){
     auto validate = instance -> validate_verhoeff(checkDigit);
     delete instance;
     //RETURN 
-    return (validate == 0) ? elements[0] : 0;
+    //return (validate == 0) ? elements[0] : 0;
 }

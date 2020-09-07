@@ -25,6 +25,7 @@ SOFTWARE.
 
 #include<stdint.h>
 #include"../Checksum/checksum.h"
+#include"../../../AUAC_TYPEDEFS/AUAC_TYPES.h"
 #include"../MISC/utility.h"
 
 class P_MAIN {

@@ -24,12 +24,15 @@ SOFTWARE.
 #define TRANSFER_
 
 #include"main/Process.h"
+#include"../../AUAC_TYPEDEFS/AUAC_TYPES.h"
 #include<stdint.h>
 
 class Transfer {
     public:
+        //Function to move data through to checkdigit and output
         void shiftX(uint8_t data,void (*func)(char*)){P_MAIN sX; return sX.transmit(data,(func));}
 
+        //Function to collect and return 
         char collectX(char (*func)()){P_MAIN cX;return cX.get((func));}
 
 };

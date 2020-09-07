@@ -25,6 +25,7 @@ SOFTWARE.
 
 #include<stdint.h>
 #include<string.h>
+#include"../../../AUAC_TYPEDEFS/AUAC_TYPES.h"
 
 class MISC {
     public:

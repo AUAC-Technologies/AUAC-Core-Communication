@@ -26,6 +26,7 @@ SOFTWARE.
 #include<stdint.h>
 #include<stddef.h>
 #include<string.h>
+#include"../../../AUAC_TYPEDEFS/AUAC_TYPES.h"
 
 class CHECKSUM {
     private:
