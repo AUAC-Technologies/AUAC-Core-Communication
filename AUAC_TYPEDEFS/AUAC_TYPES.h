@@ -18,25 +18,65 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 */
-//Author - Nyameaama Gambrah
+//Author - Nyameaama Gambrah 
 
-#ifndef PROCESS_MAIN
-#define PROCESS_MAIN
+#ifndef DEFINITIONS_
+#define DEFINITIONS_
 
 #include<stdint.h>
-#include"../Checksum/checksum.h"
-#include"../MISC/utility.h"
+#include<stddef.h>
 
-class P_MAIN {
-    private:
-        uint8_t createChecksum(uint8_t x);
-
-    public:
-        void transmit(uint8_t data, void (*func)(char*));
-
-        char get(char (*func)());
+//Void type
+typedef void NO_RETURN;
 
 
-};
+//Unsigned
 
-#endif
+//Unsigned 8 bit integer
+typedef uint8_t AUAC_UBASE_8;
+//Unsigned 16 bit integer
+typedef uint16_t AUAC_UBASE_16;
+//Unsigned 32 bit integer
+typedef uint32_t AUAC_UBASE_32;
+//Unsigned 64 bit integer
+typedef uint64_t AUAC_UBASE_64;
+
+
+
+//Signed
+
+//8 bit integer
+typedef int8_t AUAC_BASE_8;
+//16 bit integer
+typedef int16_t AUAC_BASE_16;
+//32 bit integer
+typedef int32_t AUAC_BASE_32;
+//64 bit integer
+typedef int64_t AUAC_BASE_64;
+
+
+
+//floating point
+
+//double
+typedef double AUAC_BASE_DOUBLE;
+//float
+typedef float AUAC_BASE_FLOAT;
+
+
+
+//Char
+
+//char*
+typedef char* AUAC_BASE_STRING;
+
+
+
+//Boolean
+typedef bool AUAC_BASE_BOOL;
+
+
+
+
+
+#endif  
