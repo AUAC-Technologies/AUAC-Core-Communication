@@ -33,7 +33,7 @@ class Transfer {
         void shiftX(uint8_t data,void (*func)(char*)){P_MAIN sX; return sX.transmit(data,(func));}
 
         //Function to collect and return 
-        char collectX(char (*func)()){P_MAIN cX;return cX.get((func));}
+        char* collectX(char* (*func)()){P_MAIN cX;return cX.get((func));}
 
 };
 

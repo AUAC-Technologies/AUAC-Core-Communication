@@ -20,26 +20,16 @@ SOFTWARE.
 */
 //Author - Nyameaama Gambrah
 
-#ifndef PROCESS_MAIN
-#define PROCESS_MAIN
+#ifndef COMMUNICATION_CLIENT_PORTAL_
+#define COMMUNICATION_CLIENT_PORTAL_
 
-#include<stdint.h>
-#include"../Checksum/checksum.h"
-#include"../../../AUAC_TYPEDEFS/AUAC_TYPES.h"
-#include"../MISC/utility.h"
+#include<../DataValidity/src/transfer.h>
 
-class P_MAIN {
-    private:
-        //Create checksum
-        uint8_t createChecksum(uint8_t x);
-
+class COMMUNICATION_CLIENT_PORTAL {
     public:
-        //Checkdigit data and send by output function
-        void transmit(uint8_t data, void (*func)(char*));
+        
 
-        //Parse input information and verify checkdigit
-        char* get(char* (*func)());
 
 };
 
-#endif
+#endif //COMMUNICATION_CLIENT_PORTAL

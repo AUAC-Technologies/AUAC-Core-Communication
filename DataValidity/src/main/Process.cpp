@@ -34,11 +34,11 @@ void P_MAIN::transmit(uint8_t data, void (*func)(char*)){
     auto merged = util -> PACKET_MERGE_2VALUES(data,checksum);
     delete util;
     //OUTPUT METHOD
-    (*func)(merged);
+    func(merged);
     return;
 }
 
-char P_MAIN::get(char (*func)()){
+char* P_MAIN::get(char* (*func)()){
     //PARSE PACKET
     MISC *util = new MISC();
     auto *elements = util -> PARSE_PACKET(func);

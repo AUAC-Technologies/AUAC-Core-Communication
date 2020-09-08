@@ -27,6 +27,8 @@ SOFTWARE.
  * Written by Lukás Chmela
  * Released under GPLv3.
  */
+
+//Function to convert int to char
 char* MISC::itoa(int value, char* result, int base) {
     // check that the base if valid
     if (base < 2 || base > 36) { *result = '\0'; return result; }
@@ -55,6 +57,7 @@ char* MISC::itoa(int value, char* result, int base) {
     Nyameaama Gambrah
 */
 
+//Function to merge 2 values
 char *MISC::PACKET_MERGE_2VALUES(unsigned int x,unsigned int y){
     //Separate strings with '00'
     //Buffers
@@ -76,7 +79,7 @@ TYPE_DEF MISC::COMPARE_CHECKSUMS(TYPE_DEF CHECKSUM_A,TYPE_DEF CHECKSUM_B){
 
 }
 
-char *MISC::PARSE_PACKET(char (*func)()){
+char *MISC::PARSE_PACKET(char* (*func)()){
     /*char parsed[16];
     uint8_t buf1index,buf2index;
     auto funcResult = (func);

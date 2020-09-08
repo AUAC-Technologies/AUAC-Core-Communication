@@ -29,14 +29,17 @@ SOFTWARE.
 
 class MISC {
     public:
+        //Function to convert int to char
         char* itoa(int value, char* result, int base); 
 
+        //Function to merge 2 values
         char* PACKET_MERGE_2VALUES(unsigned int x,unsigned int y);
 
         template<typename TYPE_DEF>
         TYPE_DEF COMPARE_CHECKSUMS(TYPE_DEF CHECKSUM_A,TYPE_DEF CHECKSUM_B);
 
-        char *PARSE_PACKET(char (*func)());
+        //
+        char *PARSE_PACKET(char* (*func)());
 
 };
 
