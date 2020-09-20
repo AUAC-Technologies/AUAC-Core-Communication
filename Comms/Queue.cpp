@@ -22,13 +22,63 @@ SOFTWARE.
 
 #include"Queue.h"
 
+//Data Structure for outbound transmissions 
 AUAC_BASE_STRING sendQueue[1][5];
+//Data Structure for inbound transmissions 
 AUAC_BASE_STRING receiveQueue[1][5];
+//Variable to store last transmission.| 1  = (Outbound) and 2 = (Inbound) |
+AUAC_UBASE_8 lastTransmissionType = 1;
 
-AUAC_BASE_STRING Queue::dispatch(AUAC_BASE_STRING tag, AUAC_BASE_STRING data){
-    
+//Linear Congruential Generator function to generate a random number within set boundaries
+AUAC_BASE_8 Queue::LCG(AUAC_BASE_8 x,AUAC_BASE_8 y,AUAC_BASE_8 seed){
+
 }
 
+//Method to determine next comm task (Send / Receive) 
+AUAC_BASE_8 Queue::determineNextTask(){
+    /*Function uses LCG generator to pick a random number between 1 (Outbound) and 2 (Inbound).
+    If random number is equal to last transmission stored (variable denoted lastTransmissionType),
+    opposite transmission type will be returned to dispatch function*/
+
+    //Check to see if lastTransmissionType has a valid value
+    
+    //Create temp array and fill with 
+    AUAC_UBASE_8 *_temp = (AUAC_UBASE_8*)malloc(2);
+    _temp[0] = 1; _temp[1] = 2;
+    //LCG random number
+    AUAC_BASE_8 randomValue = LCG(1,2,RAND_SEED);
+    //Variable holding nextTask
+    AUAC_BASE_8 nextTask = randomValue;
+    if(randomValue != lastTransmissionType){
+        //Update nextTask as Current Value
+    }else{
+        //Update nextTask as Other Value in 2 value array
+        for(size_t i = 0; i < 2;++i)
+            if(_temp[i] == randomValue)
+                nextTask = _temp[i + 1];
+            else{
+                nextTask = _temp[i];
+            }
+    }
+    //Update last transmission type
+    lastTransmissionType = nextTask;
+    //Free mem
+    free(_temp);
+    return nextTask;
+}
+
+//Driver Function to dispatch formatted data to output
+AUAC_BASE_STRING Queue::dispatch(AUAC_BASE_STRING tag, AUAC_BASE_STRING data){
+    //Object for tranfer class
+    Transfer *func = new Transfer();
+    //Determine Next task 
+    AUAC_BASE_8 task = Queue::determineNextTask();
+    
+    //Delete Object
+    delete func;
+}
+
+//Driver Function to receive formatted data from output
 AUAC_BASE_STRING Queue::receive(AUAC_BASE_STRING tag){
 
 }

@@ -24,17 +24,26 @@ SOFTWARE.
 #define QUEUE_
 
 #include"../AUAC_TYPEDEFS/AUAC_TYPES.h"
+#include"../DataValidity/src/transfer.h"
+#include<stdlib.h>
 
+#define RAND_SEED 0
 
 class Queue {
     private:
         NO_RETURN logTransmsission();
 
-        
+        //Linear Congruential Generator function to generate a random number within set boundaries
+        AUAC_BASE_8 LCG(AUAC_BASE_8 x,AUAC_BASE_8 y,AUAC_BASE_8 seed);
+
+        //Method to determine next comm task (Send / Receive) 
+        AUAC_BASE_8 determineNextTask();
 
     public:
+        //Driver Function to dispatch formatted data to output
         AUAC_BASE_STRING dispatch(AUAC_BASE_STRING tag, AUAC_BASE_STRING data);
 
+        //Driver Function to receive formatted data from output
         AUAC_BASE_STRING receive(AUAC_BASE_STRING tag);
 
 };
