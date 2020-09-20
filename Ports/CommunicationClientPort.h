@@ -23,12 +23,17 @@ SOFTWARE.
 #ifndef COMMUNICATION_CLIENT_PORTAL_
 #define COMMUNICATION_CLIENT_PORTAL_
 
-#include<../DataValidity/src/transfer.h>
+//#include<../DataValidity/src/transfer.h>
+#include"../AUAC_TYPEDEFS/AUAC_TYPES.h"
+#include"../Comms/Queue.h"
 
 class COMMUNICATION_CLIENT_PORTAL {
     public:
-        
+        //Send Request to handler 
+        AUAC_BASE_STRING forward(AUAC_BASE_STRING tag, AUAC_BASE_STRING data){Queue transmission;transmission.dispatch(tag,data);}
 
+        //Request transmission from handler
+         
 
 };
 

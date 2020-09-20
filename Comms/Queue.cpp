@@ -20,5 +20,15 @@ SOFTWARE.
 */
 //Author - Nyameaama Gambrah
 
-#include"CommunicationClientPortal.h"
+#include"Queue.h"
 
+AUAC_BASE_STRING sendQueue[1][5];
+AUAC_BASE_STRING receiveQueue[1][5];
+
+AUAC_BASE_STRING Queue::dispatch(AUAC_BASE_STRING tag, AUAC_BASE_STRING data){
+    
+}
+
+AUAC_BASE_STRING Queue::receive(AUAC_BASE_STRING tag){
+
+}
