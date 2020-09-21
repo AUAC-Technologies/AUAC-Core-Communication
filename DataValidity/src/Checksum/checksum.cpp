@@ -78,10 +78,12 @@ int CHECKSUM::validate_verhoeff(char* num){
   return (c == 0);
 }
 
+//Verhoeff Driver
 int CHECKSUM::verhoeffChecksum(const char* num){
    return generate_verhoeff(num);
 }
 
+//Implementation of CRC32
 uint32_t CHECKSUM::crc32c_checksum(char data){
     const char *message;// = data.c_str();
     int i, j;

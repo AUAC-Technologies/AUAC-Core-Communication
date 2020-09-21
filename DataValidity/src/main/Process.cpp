@@ -22,6 +22,7 @@ SOFTWARE.
 
 #include"Process.h"
 
+ //Checkdigit data and send by output function
 void P_MAIN::transmit(uint8_t data, void (*func)(char*)){
     CHECKSUM *instance = new CHECKSUM();
     MISC *util = new MISC();
@@ -38,6 +39,7 @@ void P_MAIN::transmit(uint8_t data, void (*func)(char*)){
     return;
 }
 
+//Parse input information and verify checkdigit
 char* P_MAIN::get(char* (*func)()){
     //PARSE PACKET
     MISC *util = new MISC();

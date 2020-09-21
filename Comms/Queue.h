@@ -39,6 +39,12 @@ class Queue {
         //Method to determine next comm task (Send / Receive) 
         AUAC_BASE_8 determineNextTask();
 
+        //Method to add transmission request to queue
+        NO_RETURN addToSendQueue(AUAC_BASE_STRING tag, AUAC_BASE_STRING data);
+
+        //Method to remove transmission request to queue once fulfilled
+        NO_RETURN removeFromSendQueue(AUAC_BASE_STRING tag, AUAC_BASE_STRING data);
+
     public:
         //Driver Function to dispatch formatted data to output
         AUAC_BASE_STRING dispatch(AUAC_BASE_STRING tag, AUAC_BASE_STRING data);

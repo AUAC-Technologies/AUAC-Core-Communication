@@ -22,10 +22,14 @@ SOFTWARE.
 
 #include"Queue.h"
 
-//Data Structure for outbound transmissions 
-AUAC_BASE_STRING sendQueue[1][5];
-//Data Structure for inbound transmissions 
-AUAC_BASE_STRING receiveQueue[1][5];
+//Data Structure for outbound transmissions
+const AUAC_UBASE_8 OutboundtransmissionQueueLimit = 10;
+AUAC_BASE_STRING sendQueue[1][OutboundtransmissionQueueLimit];
+
+//Data Structure for inbound transmissions
+const AUAC_UBASE_8 InboundtransmissionQueueLimit = 10;
+AUAC_BASE_STRING receiveQueue[1][InboundtransmissionQueueLimit];
+
 //Variable to store last transmission.| 1  = (Outbound) and 2 = (Inbound) |
 AUAC_UBASE_8 lastTransmissionType = 1;
 
@@ -65,6 +69,40 @@ AUAC_BASE_8 Queue::determineNextTask(){
     //Free mem
     free(_temp);
     return nextTask;
+}
+
+//Method to add transmission request to queue
+NO_RETURN Queue::addToSendQueue(AUAC_BASE_STRING tag, AUAC_BASE_STRING data){
+    /*Unlike stack (last in, first out) structure will be implemented as a 
+    queue (first in, first out). This is implemented by shifting array groups(2D array)
+    to the left(towards[0]) when a transmission is fulfilled and adding to the last
+    index (torwards[ength]) when a transmission is added to the queue.*/
+
+}
+
+//Method to remove transmission request to queue once fulfilled
+NO_RETURN Queue::removeFromSendQueue(AUAC_BASE_STRING tag, AUAC_BASE_STRING data){
+    /*Unlike stack (last in, first out) structure will be implemented as a 
+    queue (first in, first out). This is implemented by shifting array groups(2D array)
+    to the left(towards[0]) when a transmission is fulfilled and adding to the last
+    index (torwards[ength]) when a transmission is added to the queue.*/
+
+    //Verify transmission tag and data are at the queue-front
+    AUAC_BASE_BOOL verification = true;
+    if(sendQueue[0][0] != tag || sendQueue[0][1] != data){
+        verification = false;
+        /*Error Handling*/
+
+        //Exit
+        return;
+    }
+    
+    //Shift data left 
+    //Iterate through structure and move (i) <- (i + 1)
+    for(size_t i = 0; i < OutboundtransmissionQueueLimit;++i){
+        sendQueue[i][0] = sendQueue[i + 1][0];
+        sendQueue[i][1] = sendQueue[i + 1][1];
+    }
 }
 
 //Driver Function to dispatch formatted data to output
